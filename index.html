@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TrailMate — Touch Grass</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        🌿 Trail<span>Mate</span>
+    </div>
+
+    <div class="nav-status">
+        OPEN-SOURCE AI • TOUCH GRASS
+    </div>
+
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero" id="hero">
+
+    <div class="hero-content">
+
+        <div class="eyebrow">
+            🌎 OUTDOOR AI COMPANION
+        </div>
+
+        <h1>
+            GO<br>
+            <span>OUTSIDE.</span><br>
+            AI WILL WAIT.
+        </h1>
+
+        <p>
+            TrailMate is an AI-powered outdoor companion
+            designed to make your screen the shortest part
+            of your experience.
+        </p>
+
+        <button class="primary-btn" onclick="startAdventure()">
+            START ADVENTURE →
+        </button>
+
+    </div>
+
+
+    <div class="hero-card">
+
+        <div>
+
+            <div class="card-label">
+                TODAY'S MISSION
+            </div>
+
+            <div class="mission-icon">
+                🌳
+            </div>
+
+        </div>
+
+        <div>
+
+            <h2>
+                Find something you've never noticed before.
+            </h2>
+
+            <p>
+                20 minutes. No scrolling. Just explore.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- DASHBOARD -->
+
+<section class="dashboard" id="dashboard">
+
+    <div class="dashboard-header">
+
+        <div>
+
+            <div class="eyebrow">
+                YOUR ADVENTURE
+            </div>
+
+            <h2>
+                Touch Grass Mode 🌿
+            </h2>
+
+        </div>
+
+        <button
+            class="secondary-btn"
+            onclick="endAdventure()">
+
+            END SESSION
+
+        </button>
+
+    </div>
+
+
+    <div class="dashboard-grid">
+
+
+        <!-- MISSION -->
+
+        <div class="panel mission-panel">
+
+            <h3>
+                Today's Mission
+            </h3>
+
+            <div class="mission">
+
+                <div class="mission-number">
+                    MISSION #<span id="missionNumber">01</span>
+                </div>
+
+                <h3 id="missionTitle">
+                    Take a 20-minute walk.
+                </h3>
+
+                <p id="missionDescription">
+                    Find two different trees and one
+                    thing you've never noticed before.
+                </p>
+
+                <button
+                    class="complete-btn"
+                    onclick="completeMission()">
+
+                    ✓ COMPLETE MISSION
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- TIMER -->
+
+        <div class="panel">
+
+            <h3>
+                Outside Time
+            </h3>
+
+            <div
+                class="timer"
+                id="timer">
+
+                00:00
+
+            </div>
+
+            <div class="timer-controls">
+
+                <button
+                    onclick="toggleTimer()"
+                    id="timerButton">
+
+                    START
+
+                </button>
+
+                <button
+                    onclick="resetTimer()">
+
+                    RESET
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- STATS -->
+
+        <div class="panel">
+
+            <h3>
+                Adventure Stats
+            </h3>
+
+            <div class="stats">
+
+                <div class="stat">
+
+                    <span
+                        class="stat-value"
+                        id="missions">
+
+                        0
+
+                    </span>
+
+                    <span class="stat-label">
+                        Missions
+                    </span>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <span
+                        class="stat-value"
+                        id="discoveries">
+
+                        0
+
+                    </span>
+
+                    <span class="stat-label">
+                        Discoveries
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- AI DISCOVERY -->
+
+        <div class="panel">
+
+            <h3>
+                🔎 AI Discovery Scanner
+            </h3>
+
+            <div class="camera-box">
+
+                <div>
+
+                    <div class="camera-icon">
+                        📷
+                    </div>
+
+                    <p>
+                        Photograph something interesting.
+                    </p>
+
+                    <label class="upload-btn">
+
+                        SELECT PHOTO
+
+                        <input
+                            type="file"
+                            accept="image/*"
+                            capture="environment"
+                            onchange="analyzeImage(event)">
+
+                    </label>
+
+                </div>
+
+            </div>
+
+
+            <img
+                id="preview"
+                alt="Selected discovery">
+
+
+            <div
+                class="ai-result"
+                id="aiResult">
+
+                <strong>
+                    🤖 AI Observation
+                </strong>
+
+                <p id="aiText"></p>
+
+            </div>
+
+        </div>
+
+
+        <!-- LOCATION -->
+
+        <div class="panel">
+
+            <h3>
+                📍 Your Location
+            </h3>
+
+            <p
+                class="location-status"
+                id="locationStatus">
+
+                Location has not been requested yet.
+
+            </p>
+
+            <button
+                class="complete-btn"
+                onclick="getLocation()">
+
+                GET LOCATION
+
+            </button>
+
+        </div>
+
+
+        <!-- SCORE -->
+
+        <div class="panel score-panel">
+
+            <h3>
+                Touch Grass Score
+            </h3>
+
+            <div
+                class="score"
+                id="score">
+
+                0
+
+            </div>
+
+            <p
+                class="score-message"
+                id="scoreMessage">
+
+                Start exploring to build your score.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div>
+        🌿 TrailMate
+    </div>
+
+    <p>
+        Built for the Open-Source AI Challenge.
+    </p>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
